@@ -79,4 +79,57 @@ public class Algorithms {
         return sortArray;
     }
 
+    public static String parseIntToString(int number) {
+        var residue = 0;
+        final var charsOfNumbers = new ArrayList<Character>();
+        var stringNumber = "";
+
+        if (number <= 9) {
+            return String.valueOf(parseIntToChar(number));
+        }
+
+        do {
+            residue = number % 10;
+            number = number / 10;
+
+            charsOfNumbers.add(parseIntToChar(residue));
+
+            if (number <= 9) {
+                charsOfNumbers.add(parseIntToChar(number));
+            }
+
+        } while (number > 9);
+
+        for (var index = (charsOfNumbers.size() - 1); index >= 0; index--) {
+            stringNumber+=charsOfNumbers.get(index);
+        }
+
+        return stringNumber;
+    }
+
+    private static char parseIntToChar(final int number) {
+        if (number == 0) {
+            return '0';
+        } else if (number == 1) {
+            return '1';
+        } else if (number == 2) {
+            return '2';
+        } else if (number == 3) {
+            return '3';
+        } else if (number == 4) {
+            return '4';
+        } else if (number == 5) {
+            return '5';
+        } else if (number == 6) {
+            return '6';
+        } else if (number == 7) {
+            return '7';
+        } else if (number == 8) {
+            return '8';
+        } else if (number == 9) {
+            return '9';
+        }
+        return '0';
+    }
+
 }
